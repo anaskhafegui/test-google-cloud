@@ -1,0 +1,9 @@
+.w-800 {
+    width: 800px;
+}
+
+.custom-img-container-1 {
+    width: 500px;
+    height: 300px;
+    object-fit: cover;
+}
