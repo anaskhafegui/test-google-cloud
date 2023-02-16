@@ -18,4 +18,4 @@ CMD sh /app/docker/startup.sh
 
 FROM node:8.12.1
 
-RUN npm install
+RUN npm install && npm run build
