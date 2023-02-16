@@ -17,6 +17,5 @@ RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh
 
-RUN cd /var/www/my-node-mirror/htdocs
 RUN sh -c "wget https://github.com/mk-pmb/nodesource-mirror-bash-wget/raw/master/upd_all.sh"
 RUN chmod a+x upd_all.sh
