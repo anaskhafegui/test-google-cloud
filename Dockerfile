@@ -18,6 +18,8 @@ RUN cd /app && \
 
 RUN chown -R www-data: /app
 
+RUN npm install
+
 CMD sh /app/docker/startup.sh
 
-RUN npm install
+
