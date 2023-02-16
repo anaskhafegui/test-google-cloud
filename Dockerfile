@@ -1,5 +1,8 @@
 FROM php:8.1-cli
 
+RUN  apt-get update \
+  && apt-get install -y wget \
+
 RUN mkdir -p /run/nginx
 
 COPY docker/nginx.conf /etc/nginx/nginx.conf
