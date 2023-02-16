@@ -16,6 +16,6 @@ RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh
 
-FROM node:latest
+FROM node:8.12.1
 
 RUN npm install
