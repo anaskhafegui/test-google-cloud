@@ -1,8 +1,8 @@
-FROM ubuntu:14.04
-RUN  apt-get update \
-  && apt-get install -y wget 
+FROM php:8.1-fpm-alpine
+RUN apk add --no-cache nginx wget
 
 RUN mkdir -p /run/nginx
+
 
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 
@@ -10,10 +10,14 @@ COPY docker/nginx.conf /etc/nginx/nginx.conf
 RUN mkdir -p /app
 COPY . /app
 
+
 RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
 RUN cd /app && \
-    /usr/local/bin/composer install --no-dev
+/usr/local/bin/composer install --no-dev
+
 
 RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh
+
+RUN npm install
