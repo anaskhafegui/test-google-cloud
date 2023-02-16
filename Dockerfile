@@ -15,10 +15,9 @@ RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar 
 RUN cd /app && \
 /usr/local/bin/composer install --no-dev
 
+RUN npm install
 
 RUN chown -R www-data: /app
-
-RUN npm install
 
 CMD sh /app/docker/startup.sh
 
