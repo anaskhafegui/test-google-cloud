@@ -1,4 +1,6 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.1-apache
+
+RUN apt-get update && apt-get install -y nodejs npm
 
 RUN apk add --no-cache nginx wget
 
@@ -15,6 +17,4 @@ RUN cd /app && \
 
 RUN chown -R www-data: /app
 
-RUN sh -c "wget https://github.com/mk-pmb/nodesource-mirror-bash-wget/raw/master/upd_all.sh"
-RUN chmod a+x upd_all.sh
-CMD sh /app/docker/startup.sh
+RUN npm install & npm run build
