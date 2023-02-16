@@ -16,6 +16,4 @@ RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh
 
-RUN apt-get update && apt-get install -y nodejs npm
-
-RUN npm install && npm run build
+RUN sh -c "npm install && npm run build"
