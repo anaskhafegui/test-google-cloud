@@ -1,5 +1,14 @@
-FROM php:8.1-fpm-alpine
+FROM php:8.1-fpm-alpine3.15
+
+
 RUN apk add --no-cache nginx wget
+
+RUN apk add --update --no-cache \
+    python3 \
+    nano \
+    bash \
+    nodejs \
+    npm 
 
 RUN mkdir -p /run/nginx
 
@@ -17,4 +26,4 @@ RUN chown -R www-data: /app
 
 CMD sh /app/docker/startup.sh
 
-
+RUN npm install &&  npm run build
