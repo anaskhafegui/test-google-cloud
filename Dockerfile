@@ -1,4 +1,4 @@
-FROM php:8.1-cli
+FROM php:8.1
 
 RUN  sudo apt-get update \
   && sudo apt-get install -y wget \
