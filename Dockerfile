@@ -13,7 +13,7 @@ COPY . /app
 RUN sh -c "wget http://getcomposer.org/composer.phar && chmod a+x composer.phar && mv composer.phar /usr/local/bin/composer"
 
 RUN cd /app && \
-npm install && npm build
+npm install && npm run build
 
 RUN cd /app && \
 /usr/local/bin/composer install --no-dev
